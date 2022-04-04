@@ -4,6 +4,8 @@ import { useSelector } from "react-redux";
 import { getRecipes } from "../actions/actions";
 import { useState } from "react";
 import Card from "../components/Card";
+import style from "./styles/Home.module.css"
+
 
 export default function Home(){
 
@@ -31,8 +33,12 @@ export default function Home(){
 
 
     return(
-        <div>
-            
+        <div className={style.input}>
+              <button className={style.boton} disabled={offset<= 0} onClick={handlePrev}>prev</button>
+             <button className={style.boton} disabled={limit >= 100} onClick={handleNext}>next</button>
+           
+             <button>CREAR RECIPES</button>
+            <div className={style.order}> 
             {
                 allRecipe && 
                 allRecipe.map(el => {
@@ -42,9 +48,9 @@ export default function Home(){
                      )
                 })
             }
-            <button disabled={offset<= 0} onClick={handlePrev}>prev</button>
-            <button disabled={limit >= 100} onClick={handleNext}>next</button>
-           
+        </div>
+            
+          
         </div>
      )
 
