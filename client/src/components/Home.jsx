@@ -8,7 +8,7 @@ import Card from "../components/Card";
 export default function Home(){
 
     const dispatch = useDispatch()
-    const  allRecipes = useSelector((state) => state.recipes)
+    const  allRecipe = useSelector((state) => state.recipes)
     const  [offset, setOffset] = useState(0)
     const [limit, setLimit] = useState(9)
   
@@ -34,8 +34,8 @@ export default function Home(){
         <div>
             
             {
-                allRecipes && 
-                allRecipes.map(el => {
+                allRecipe && 
+                allRecipe.map(el => {
                     return (
                         
                     <Card  name={el.name}  img={el.img} diets={el.diets}  key={el.id}/>
