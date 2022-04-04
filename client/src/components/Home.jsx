@@ -7,6 +7,7 @@ import Card from "../components/Card";
 import style from "./styles/Home.module.css"
 
 
+
 export default function Home(){
 
     const dispatch = useDispatch()
