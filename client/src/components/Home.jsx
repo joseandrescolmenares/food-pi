@@ -35,11 +35,11 @@ export default function Home(){
 
     return(
         <div className={style.input}>
-              <button className={style.boton} disabled={offset<= 0} onClick={handlePrev}>prev</button>
-             <button className={style.boton} disabled={limit >= 100} onClick={handleNext}>next</button>
-           
-             <button>CREAR RECIPES</button>
-            <div className={style.order}> 
+              <button className={style.boton} disabled={offset<= 0} onClick={handlePrev}>atras</button>
+       
+
+         <div className={style.order}>
+
             {
                 allRecipe && 
                 allRecipe.map(el => {
@@ -50,6 +50,10 @@ export default function Home(){
                 })
             }
         </div>
+
+       
+        <button disabled={limit >= 100} onClick={handleNext}>siguiente</button>
+       
             
           
         </div>

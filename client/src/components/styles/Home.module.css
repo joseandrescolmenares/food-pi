@@ -1,14 +1,12 @@
 .input{ 
-   
  padding: 50px;
- display: block;
- text-align: center;
+ display: flex;
+align-items: flex-start;
 }
 
 
 
 .order{
-
     margin-top: 50px;
     text-align: center;
      display: grid;
@@ -16,11 +14,5 @@
     align-items: center;
     grid-template-columns:repeat(3, 1fr) ;
     grid-template-rows: repeat(3, 1fr);
-
-}
-
-.boton{
-   margin-right: 20px;
-   
 }
 
