@@ -12,6 +12,13 @@ function rootReducer( state = initialState, action){
               ...state,
                  recipes: action.payload
     }
+
+    case 'GET_RECIPES_NAME':
+        return{
+            ...state,
+                recipes: action.payload
+        }
+
     default:
         return state;
   }

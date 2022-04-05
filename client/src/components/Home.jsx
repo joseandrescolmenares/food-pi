@@ -31,12 +31,15 @@ export default function Home(){
       }
 
      
-
+     
 
     return(
+
+          
+
         <div className={style.input}>
               <button className={style.boton} disabled={offset<= 0} onClick={handlePrev}>atras</button>
-       
+        
 
          <div className={style.order}>
 
@@ -50,6 +53,7 @@ export default function Home(){
                 })
             }
         </div>
+     
 
        
         <button disabled={limit >= 100} onClick={handleNext}>siguiente</button>
