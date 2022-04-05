@@ -5,7 +5,7 @@ import { getRecipes } from "../actions/actions";
 import { useState } from "react";
 import Card from "../components/Card";
 import style from "./styles/Home.module.css"
-
+import { Link } from "react-router-dom";
 
 
 export default function Home(){
@@ -34,32 +34,26 @@ export default function Home(){
      
 
     return(
-
-          
-
-        <div className={style.input}>
+            <div> 
+             <div className={style.input}>
               <button className={style.boton} disabled={offset<= 0} onClick={handlePrev}>atras</button>
-        
-
+            
          <div className={style.order}>
 
             {
                 allRecipe && 
                 allRecipe.map(el => {
-                    return (
-                        
-                    <Card  name={el.name}  img={el.img} diets={el.diets}  key={el.id}/>
+                    return ( 
+                          
+                    <Link to={`/home/${el.id}`}>
+                    <Card  name={el.name}  img={el.img} diets={el.diets}  />
+                   </Link>  
                      )
                 })
             }
         </div>
-     
-
-       
-        <button disabled={limit >= 100} onClick={handleNext}>siguiente</button>
-       
-            
-          
+        <button disabled={limit >= 100} onClick={handleNext}>siguiente</button>  
+        </div>
         </div>
      )
 

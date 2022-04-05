@@ -2,6 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { getRecipesName } from "../actions/actions";
+import style from "./styles/SearchRecipes.module.css"
 
 
 
@@ -19,9 +20,9 @@ export default function SearchRecipes(){
         }
 
     return(
-        <div>
-            <input type="text" placeholder="buscar..." onChange={(e) => handleName(e)} />
-            <button type="submit" onClick={ () => hadleOnclick()}>Buscar</button>
+        <div className={style.buscar}>
+            <input className={style.input} type="text" placeholder="buscar..." onChange={(e) => handleName(e)} />
+            <button className={style.inputBuscar} type="submit" onClick={ () => hadleOnclick()}>Buscar</button>
         </div>
     )
 }

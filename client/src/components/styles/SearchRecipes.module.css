@@ -1,0 +1,18 @@
+.buscar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.input{
+    border-radius: 10px;
+    width: 300px;
+    height: 25px;
+    margin: 10px;
+}
+
+.inputBuscar{
+    border-radius: 10px;
+   padding: 6px;
+}

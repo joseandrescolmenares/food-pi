@@ -21,6 +21,7 @@ const getApirecipes  = async ()  =>{
             summary: e.summary,
             score: e.spoonacularScore,
             level: e.weightWatcherSmartPoints,
+            type: e.dishTypes.map(el => el),
             // steps: e.analyzedInstruction.map(el => el),
 
         };

@@ -1,0 +1,11 @@
+.h1{
+    color: aliceblue;
+}
+
+
+.Card{
+   margin-left: 20px;
+   padding: 30px;
+    border-radius: 30px;
+    background-color: rgb(31, 30, 30);
+}

@@ -24,3 +24,14 @@ export function getRecipesName(name){
         })
     }
 }
+
+
+export function getDetailrecipes(id){
+    return async function(dispatch){
+        let resultado = await axios.get(`http://localhost:3001/recipes/${id}`)
+        return dispatch({
+            type: 'GET_DETAIL',
+            payload: resultado.data
+        })
+    }
+}
