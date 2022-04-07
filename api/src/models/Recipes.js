@@ -16,9 +16,9 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
 
-    img: {
+    image: {
       type: DataTypes.STRING,
-      allowNull: true
+      allowNull: true,
     },
 
     summary:{
@@ -39,6 +39,11 @@ module.exports = (sequelize) => {
     steps:{
       type: DataTypes.STRING,
       allowNull: true,
+    },
+    createBD: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      defaultValue: true,
     }
 
   },{

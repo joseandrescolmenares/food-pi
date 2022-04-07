@@ -12,11 +12,11 @@ import {getType, postCreate} from '../actions/actions'
   
     const [input, setInput] = useState({
         name:"",
-        types: [],
         score:"",
         level: "",
         steps: "",
         summary: "",
+        types: [],
         
 
     })
@@ -40,8 +40,19 @@ import {getType, postCreate} from '../actions/actions'
         }
     }
 
-    const handleSubmit = ()=>{
-        
+    const handleSubmit = (e)=>{
+        e.preventDefault()
+        dispatch(postCreate(input))
+        alert('tu personaje se creo con exitos')
+        setInput({
+            name:"",
+            types: [],
+            score:"",
+            level: "",
+            steps: "",
+            image: "",
+            summary: "",
+        })
     }
 
     useEffect(() =>{
@@ -52,7 +63,7 @@ import {getType, postCreate} from '../actions/actions'
      return(
          <div>
              <h1>crea tu personaje</h1>
-             <form>
+             <form onSubmit={(e) => handleSubmit(e)}>
                  <div>
                      <label>nombre</label>
                      <input type="text" name="name" value={input.name} onChange={(e)=>handleChange(e)}/>
