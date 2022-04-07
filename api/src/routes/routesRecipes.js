@@ -79,7 +79,7 @@ router.get("/", async (req, res) =>{
            res.status(404).send('no se encuentra ninguna receta')
     
         }else {
-            res.status(200).send(recipesTotal)
+            res.status(200)
         }
     
     }catch(error){console.log(error)}

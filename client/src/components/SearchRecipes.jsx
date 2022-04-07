@@ -12,11 +12,15 @@ export default function SearchRecipes(){
 
         const handleName = (e) =>{
             setName(e.target.value)
+           
         }
 
         const hadleOnclick = () => {
+            if(name === ''){
+                alert('no se puede mandar')
+            }
            dispatch(getRecipesName(name))
-           
+        
         }
 
     return(

@@ -29,8 +29,7 @@ export default function Detailrecipes(){
                   <p>{detailrecipes.summary}</p>
                   <h2>{detailrecipes.score}</h2>
                   <h2>{detailrecipes.level}</h2>
-
-               </div>
+                </div>
             }
         </div>
     )

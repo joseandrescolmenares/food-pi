@@ -35,3 +35,24 @@ export function getDetailrecipes(id){
         })
     }
 }
+ 
+export function getType(){
+    return async function(dispatch){
+        let data = await axios.get('http://localhost:3001/types')
+        return dispatch({
+            type: 'GET_TYPES',
+            payload: data.data
+        })
+    }
+}
+
+
+
+
+export function postCreate(payload) {
+    return async function(dispatch){
+        let info = await  axios.post('http://localhost:3001/recipe', payload)
+        return info
+    }
+}
+

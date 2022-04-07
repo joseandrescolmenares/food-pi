@@ -6,7 +6,7 @@ import { useState } from "react";
 import Card from "../components/Card";
 import style from "./styles/Home.module.css"
 import { Link } from "react-router-dom";
-
+import SearchRecipes from "./SearchRecipes";
 
 export default function Home(){
 
@@ -35,6 +35,10 @@ export default function Home(){
 
     return(
             <div> 
+              <div> 
+              <SearchRecipes />
+              </div>
+
              <div className={style.input}>
               <button className={style.boton} disabled={offset<= 0} onClick={handlePrev}>atras</button>
             
@@ -46,7 +50,7 @@ export default function Home(){
                     return ( 
                           
                     <Link to={`/home/${el.id}`}>
-                    <Card  name={el.name}  img={el.img} diets={el.diets}  />
+                    <Card   key={el.id}  name={el.name}  img={el.img} diets={el.diets}  />
                    </Link>  
                      )
                 })
@@ -54,6 +58,7 @@ export default function Home(){
         </div>
         <button disabled={limit >= 100} onClick={handleNext}>siguiente</button>  
         </div>
+       
         </div>
      )
 
