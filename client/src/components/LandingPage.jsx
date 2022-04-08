@@ -5,6 +5,7 @@ import style from "./styles/LandingPage.module.css"
 
 export default function LandingPage(){
     return (
+        
         <div className={style.centrar}>
             <h1 className={style.h1}>bienvenidos a mi app</h1>
         
@@ -12,5 +13,6 @@ export default function LandingPage(){
            <button><h1>recipes</h1></button> 
              </NavLink>
         </div>
+       
     )
 }

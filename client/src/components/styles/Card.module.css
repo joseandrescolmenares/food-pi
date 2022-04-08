@@ -1,5 +1,5 @@
 .h1{
-    color: aliceblue;
+    color: rgb(0, 3, 5);
 }
 
 
@@ -9,9 +9,11 @@
    margin-left: 20px;
    padding: 20px;
     border-radius: 30px;
-    background-color:rgb(138, 130, 131);
+    border: 1px solid #333;
+    background-color: #dfc0b3;
     display: flex;
     flex-direction: column;
     justify-content:center;
     align-items:center;
+   
 }

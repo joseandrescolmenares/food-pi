@@ -58,7 +58,17 @@ export default function Home(){
 
     return(
             <div> 
-              <div>
+
+              
+             
+              <div className={style.create}> 
+              <Link to={"/recipe"}> <button className={style.botone}> <h1>crea tu receta</h1></button></Link> 
+              </div>
+              <div> 
+              <SearchRecipes />
+              </div>
+
+              <div className={style.filtrado}>
                 <select onChange={(e)=> handleorder(e)}>
                 <option value="asc">Ascendente</option>
                 <option value="desc">Desendente</option>
@@ -86,13 +96,9 @@ export default function Home(){
                 </select>
               </div>
 
-              <div> 
-              <SearchRecipes />
-              </div>
-              
 
              <div className={style.input}>
-              <button  disabled={offset<= 0} onClick={handlePrev}>atras</button>
+              <button className={style.filtradoAtras}  disabled={offset<= 0} onClick={handlePrev}>atras</button>
             
          <div className={style.order}>
 
@@ -101,14 +107,14 @@ export default function Home(){
                 allRecipe.map(el => {
                     return ( 
                           
-                    <Link to={`/home/${el.id}`}>
-                    <Card   key={el.id}  name={el.name}  img={el.img ? el.img : "https://www.cuerpomente.com/medio/2022/03/04/recetas-frias-veganas_0de24069_1200x630.jpg" } diets={el.diets} score={el.score} />
+                    <Link className={style.link} to={`/home/${el.id}`}>
+                    <Card   key={el.id}  name={el.name}  img={el.img ? el.img : "https://www.cuerpomente.com/medio/2022/03/04/recetas-frias-veganas_0de24069_1200x630.jpg" } diets={el.diets}  />
                    </Link>  
                      )
                 })
             }
         </div>
-        <button disabled={limit >= 100} onClick={handleNext}>siguiente</button>  
+        <button className={style.botonsiguiente} disabled={limit >= 100} onClick={handleNext}>siguiente</button>  
         </div>
        
         </div>

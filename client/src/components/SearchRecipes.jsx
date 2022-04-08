@@ -25,6 +25,7 @@ export default function SearchRecipes(){
 
     return(
         <div className={style.buscar}>
+          
             <input className={style.input} type="text" placeholder="buscar..." onChange={(e) => handleName(e)} />
             <button className={style.inputBuscar} type="submit" onClick={ () => hadleOnclick()}>Buscar</button>
         </div>
