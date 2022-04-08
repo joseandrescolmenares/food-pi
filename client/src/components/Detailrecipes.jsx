@@ -4,10 +4,10 @@ import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getDetailrecipes } from "../actions/actions";
-import {NavLink} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 export default function Detailrecipes(){
-
+    const navegate =  useNavigate()
     const {id} = useParams()
     
     const dispatch = useDispatch()
@@ -16,10 +16,17 @@ export default function Detailrecipes(){
     useEffect(() =>{
         dispatch(getDetailrecipes(id))
     },[dispatch,id])
-    console.log(detailrecipes)
+    
+
+     const handleOnclick =() =>{
+         navegate('/home')
+     }
+
+     
+
     return(
         <div>
-               <NavLink to='/home'><button> regresar</button></NavLink>
+               <button onClick={handleOnclick}> regresar</button>
             {           
                <div>
                   <h1>{detailrecipes.name}</h1> 
@@ -29,6 +36,7 @@ export default function Detailrecipes(){
                   <p>{detailrecipes.summary}</p>
                   <h2>{detailrecipes.score}</h2>
                   <h2>{detailrecipes.level}</h2>
+
                 </div>
             }
         </div>

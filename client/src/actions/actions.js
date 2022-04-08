@@ -56,3 +56,34 @@ export function postCreate(payload) {
     }
 }
 
+export function Filtertypes(payload){
+    console.log(payload)
+    return {
+        type: 'FILTER_TYPE',
+        payload
+    }
+}
+
+
+export function createfilter(payload){
+    return {
+        type: "FILTER_CREATE",
+        payload
+    }
+}
+
+
+export function orderFilter(payload){
+    return {
+        type: "ORDER_FILTER",
+        payload
+    }
+}
+
+export function filterScore(payload){
+    return {
+        type: "SCORE_SCORE",
+        payload
+    }
+}
+

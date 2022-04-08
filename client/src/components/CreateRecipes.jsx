@@ -2,25 +2,23 @@ import React from "react";
 import { useEffect, useState  } from "react";
 import { useDispatch,useSelector  } from "react-redux";
 import {getType, postCreate} from '../actions/actions'
-
+import {useNavigate} from 'react-router-dom'
 
  export default function CreateRecipes(){
-
+    const navegetion = useNavigate()
     const dispatch = useDispatch()
-
     const types = useSelector((state) => state.types)
-  
     const [input, setInput] = useState({
         name:"",
         score:"",
         level: "",
         steps: "",
         summary: "",
-        types: [],
-        
-
+        namedi: [],
+     
     })
-
+    console.log(input.namedi)
+    
     const handleChange = (e) =>{
         setInput({
             ...input,
@@ -35,7 +33,7 @@ import {getType, postCreate} from '../actions/actions'
         if(e.target.checked){
             setInput({
                 ...input,
-                types:[...input.types, e.target.value]
+                namedi:[...input.namedi, e.target.value]
             })
         }
     }
@@ -46,14 +44,17 @@ import {getType, postCreate} from '../actions/actions'
         alert('tu personaje se creo con exitos')
         setInput({
             name:"",
-            types: [],
+            namedi: [],
             score:"",
             level: "",
             steps: "",
-            image: "",
             summary: "",
+           
         })
+        navegetion('/home')
+        
     }
+    
 
     useEffect(() =>{
         dispatch(getType())
@@ -86,10 +87,7 @@ import {getType, postCreate} from '../actions/actions'
                     <label>summary</label>
                     <input type="text" name="summary" value={input.summary} onChange={(e)=>handleChange(e)}/>
                 </div>
-                <div>
-                    <label>image</label>
-                    <input type="text" name="image" value={input.image} onChange={(e)=>handleChange(e)}/>
-                </div>
+               
                 <div>
                  {
                      types.map(el => {

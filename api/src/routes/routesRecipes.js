@@ -22,7 +22,7 @@ const getApirecipes  = async ()  =>{
             score: e.spoonacularScore,
             level: e.weightWatcherSmartPoints,
             type: e.dishTypes.map(el => el),
-            // steps: e.analyzedInstruction.map(el => el),
+            // steps: e.analyzedInstruction.map(el => el.steps),
 
         };
     });
