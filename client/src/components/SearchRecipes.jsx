@@ -20,7 +20,7 @@ export default function SearchRecipes(){
                 alert('no se puede mandar')
             }
            dispatch(getRecipesName(name))
-        
+            setName('')
         }
 
     return(

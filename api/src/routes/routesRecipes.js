@@ -61,8 +61,7 @@ const getAllrecipes = async () =>{
 router.get("/", async (req, res) =>{
     try{ 
         const  recipesTotal = await  getAllrecipes()
-        const {limit} = req.query;
-        const {offset} = req.query;
+        const {limit,offset} = req.query;
         if(offset && limit ){
          const paginateRecipes =  recipesTotal.slice(offset, limit) 
          res.status(200).send(paginateRecipes)
@@ -79,7 +78,7 @@ router.get("/", async (req, res) =>{
            res.status(404).send('no se encuentra ninguna receta')
     
         }else {
-            res.status(200)
+            res.status(404)
         }
     
     }catch(error){console.log(error)}
