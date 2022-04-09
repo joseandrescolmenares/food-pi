@@ -1,0 +1,64 @@
+
+.error{
+    color: red;
+}
+    
+ .centrar{
+     display:flex;
+     justify-content: center;
+     align-items: center;
+     width: 100%;
+     height: 100vh;
+     background-image: url("./img/jose\ 4.jpg");
+     background-repeat: no-repeat;
+     background-size: cover;
+     background-position: center;
+
+
+
+ }
+
+ .h1{
+     color: beige;
+ 
+ }
+
+ .check{
+     display: flex;
+     flex-wrap: wrap;
+     
+ }
+
+
+
+ .form{
+    text-align: center;
+     width:250px;
+     margin-bottom:30px;
+     
+ }
+
+ .card{
+     display: flex;
+     justify-content:center;
+     align-items: center;
+     width:400px;
+     height: 650px;
+     border: 1px solid #333;
+     opacity: 0.9;
+     border-radius:20px;
+     box-shadow: 20px 10px 10px #333;
+     
+ }
+
+ .boton{
+     margin-top: 10px;
+     width:100px;
+     border-radius: 10px;
+ }
+
+ .regresa{
+ margin: 20px;
+ background-color: antiquewhite;
+ border-radius: 8px;
+ }

@@ -101,9 +101,9 @@ export default function Home(){
               <button className={style.filtradoAtras}  disabled={offset<= 0} onClick={handlePrev}>atras</button>
             
          <div className={style.order}>
-
+                  
             {
-                allRecipe && 
+                allRecipe.length?
                 allRecipe.map(el => {
                     return ( 
                           
@@ -111,12 +111,17 @@ export default function Home(){
                     <Card   key={el.id}  name={el.name}  img={el.img ? el.img : "https://www.cuerpomente.com/medio/2022/03/04/recetas-frias-veganas_0de24069_1200x630.jpg" } diets={el.diets}  />
                    </Link>  
                      )
-                })
+                }) : <div className={style.cargando}>
+                    <h1>cagando un rato</h1>
+                    </div>
+
+              
+            
             }
         </div>
         <button className={style.botonsiguiente} disabled={limit >= 100} onClick={handleNext}>siguiente</button>  
         </div>
-       
+       ee
         </div>
      )
 
