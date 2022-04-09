@@ -85,6 +85,31 @@ function rootReducer( state = initialState, action){
             recipes: sorter
 
         }
+        case "SCORE_SCORE":
+            let orden = action.payload === "mayor"?
+            state.recipes.sort((a, b) =>{
+                if(a.score > b.score){
+                    return 1;
+                }
+                if(b.score > a.score){
+                    return -1;
+                }
+                return 0;
+            }):
+            state.recipes.sort((a, b) =>{
+                if(a.score > b.score){
+                    return -1;
+                }
+                if(b.score > a.score){
+                    return 1;
+                }
+                return 0;
+            })
+
+            return {
+                ...state,
+                    allrecipes: orden
+            }
      
 
     default:

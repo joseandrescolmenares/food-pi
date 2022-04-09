@@ -74,11 +74,13 @@ export default function Home(){
                 <option value="desc">Desendente</option>
                 </select>
 
+                
                 <select onChange={(e) => handleScore(e)}> 
+                
                   <option value="mayor">mayor</option>
                   <option value="menor">menor</option>
                 </select>
-
+               
                 <select onChange={(e)=>handleFiltertypes(e)}>
                 <option value="All">todos</option>
                 <option value="gluten free">gluten free</option>
