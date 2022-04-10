@@ -1,0 +1,33 @@
+.detail{
+    height: 100vh;
+   background-image: url('./img/detalle.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: center;
+   display: flex;
+justify-content:center;
+
+}
+
+.card{
+  width: 740px;
+  position: relative;
+  left: 200px;
+}
+
+.img{
+    width: 90%;
+    height: 300px
+}
+
+.h1{
+    color: #413c42;
+}
+
+.boton{
+    width: 100px;
+    height: 25px;
+   border-radius:20px;
+}
+
+

@@ -2,12 +2,36 @@
 
 
 .centrar{
-font-size: 20px;
-text-align: center;
-margin-top: 100px;
+width: 100%;
+height: 100vh;
+background-image: url("./img/menu-g55187e028_640.jpg");
+background-repeat: no-repeat;
+background-size: cover;
+background-position: center, top;
+display:flex;
+justify-content: flex-end;
+align-items: center;
 }
 
 .h1{
-    color: aliceblue;
+    position: relative;
+   bottom: 390px;
+    color: #b68f5c;
+}
+
+.inicio{
+    text-align: center;
+  position: relative;
+  right:380px;
+}
+
+.button{
+ width:300px;
+border-radius:10px;
+background-color: #b68f5c;
+
+}
+.button:hover{
+    background-color: rgb(244, 248, 248);
 }
 

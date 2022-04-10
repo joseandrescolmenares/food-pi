@@ -7,11 +7,15 @@ export default function LandingPage(){
     return (
         
         <div className={style.centrar}>
+           
+            <div className={style.inicio}> 
             <h1 className={style.h1}>bienvenidos a mi app</h1>
         
            <NavLink to='/home'>  
-           <button><h1>recipes</h1></button> 
+           <button className={style.button}><h1>Comenzar</h1></button> 
              </NavLink>
+
+        </div>
         </div>
        
     )

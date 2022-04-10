@@ -1,7 +1,7 @@
 .input{ 
  padding: 50px;
  display: flex;
-align-items: flex-start;
+justify-content:center;
 
 }
 
@@ -19,14 +19,22 @@ align-items: flex-start;
 }
 
 .botonsiguiente{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 80px;
+    height:30px;
     padding: 10px;
     margin-left: 20px;
     background-color:#dfc0b3;
     border-radius: 15px;
 }
 .filtradoAtras{
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width:70px;
+    height:30px;
     padding: 10px;
     background-color:#dfc0b3;
     border-radius: 15px;
@@ -64,6 +72,14 @@ align-items: flex-start;
 }
 
 .cargando{
-    background-color:red;
-}
+    display: flex;
+    justify-content:center;
+    align-items:center;
+     text-align: center;
+    width:100vh;
+    height: 100vh;
+    background-image: url('./img/2532664-middle\ cargando.png');
+    background-position: center;
+    background-size: cover;
 
+}

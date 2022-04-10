@@ -114,7 +114,7 @@ export default function Home(){
                    </Link>  
                      )
                 }) : <div className={style.cargando}>
-                    <h1>cagando un rato</h1>
+                    <h1>cagando...</h1>
                     </div>
 
               
