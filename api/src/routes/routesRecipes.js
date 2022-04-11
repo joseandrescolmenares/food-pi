@@ -17,7 +17,7 @@ const getApirecipes  = async ()  =>{
             id: e.id,
             name: e.title,
             img: e.image,
-            diets: e.diets.map(e => e),
+            Diets: e.diets.map(e => e),
             summary: e.summary,
             score: e.spoonacularScore,
             level: e.weightWatcherSmartPoints,
@@ -50,6 +50,7 @@ const  getDBrecipes = async () => {
 
 const getAllrecipes = async () =>{
       const getDB = await getDBrecipes();
+      console.log(getDB[0]?.Diets)
       const getApi = await getApirecipes();
       const  Totalrecipes = getDB.concat(getApi);
          return Totalrecipes;

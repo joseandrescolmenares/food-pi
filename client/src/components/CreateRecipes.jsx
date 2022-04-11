@@ -3,14 +3,16 @@ import { useEffect, useState  } from "react";
 import { useDispatch,useSelector  } from "react-redux";
 import {getType, postCreate} from '../actions/actions'
 import {useNavigate} from 'react-router-dom'
-import Validator from "./Validator"
+import  { isFullFormValid } from "./Validator"
 import style from './styles/CreateRecipe.module.css'
-import {Link} from 'react-router-dom'
+import {Link} from 'react-router-dom' 
+import {validateFormAndReturnErrorObject} from './Validator'
  
  export default function CreateRecipes(){
     const navegetion = useNavigate()
     const dispatch = useDispatch()
     const [error, setError] = useState({})
+    const [button, setButton] = useState(true)
     const types = useSelector((state) => state.types)
     const [input, setInput] = useState({
         name:"",
@@ -27,8 +29,10 @@ import {Link} from 'react-router-dom'
         setInput({
             ...input,
             [e.target.name] : e.target.value
+        
         })
-        setError(Validator({
+   
+        setError(validateFormAndReturnErrorObject({
             ...input,
                 [e.target.name] : e.target.value
         }))
@@ -43,6 +47,9 @@ import {Link} from 'react-router-dom'
                 ...input,
                 namedi:[...input.namedi, e.target.value]
             })
+        }else{
+            const filtereddiet = input.namedi.filter(el => el !== e.target.value)
+            setInput({...input, namedi: filtereddiet})
         }
     }
 
@@ -63,7 +70,10 @@ import {Link} from 'react-router-dom'
         navegetion('/home')
         
     }
-    
+    useEffect(() =>{
+        setButton(isFullFormValid(input))
+        console.log(isFullFormValid(input), input)
+    },[input])
 
     useEffect(() =>{
         dispatch(getType())
@@ -82,7 +92,7 @@ import {Link} from 'react-router-dom'
              <h1 className={style.h1}>crear  tu recetas </h1>
                  <div className={style.form}>
                      <label>nombre</label>
-                     <input className={error.name? style.error: style.h1} type="text" name="name" value={input.name} onChange={(e)=>handleChange(e)}/>
+                     <input  type="text" name="name" value={input.name} onChange={(e)=>handleChange(e)}/>
                      {
                          error.name && (
                             <p className={style.error}>{error.name}</p>
@@ -148,7 +158,7 @@ import {Link} from 'react-router-dom'
                     
                 </div>
 
-                <button className={style.boton} type="submit"> Crear</button>
+                <button disabled={button}  className={style.boton} type="submit"> Crear</button>
 
 
              </form>

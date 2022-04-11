@@ -17,9 +17,11 @@ export default function Detailrecipes(){
     },[dispatch,id])
     
 
-    
+     console.log(detailrecipes.summary)
 
-     
+    //  function renpla(){
+    //      deta
+    //  }
 
     return(
         <div className={style.detail}>
@@ -37,6 +39,7 @@ export default function Detailrecipes(){
                   
                 </div>
             }
+            
         </div>
     )
 }

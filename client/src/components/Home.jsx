@@ -19,7 +19,12 @@ export default function Home(){
   console.log(orden)
     useEffect(() =>{
         dispatch(getRecipes(offset, limit));
-    },[dispatch, limit, offset])
+        allRecipe.forEach((e, i,self) =>{
+          if(typeof e.Diets[0] !== 'string'){
+            self[i].Diets = e.Diets.map(el => el.name)
+          }
+        })
+    },[dispatch, limit, offset, allRecipe])
 
 
     const handlePrev = () =>{
@@ -110,17 +115,18 @@ export default function Home(){
                     return ( 
                           
                     <Link className={style.link} to={`/home/${el.id}`}>
-                    <Card   key={el.id}  name={el.name}  img={el.img ? el.img : "https://www.cuerpomente.com/medio/2022/03/04/recetas-frias-veganas_0de24069_1200x630.jpg" } diets={el.diets}  />
-                   </Link>  
+                     
+                    <Card   key={el.id}  name={el.name}  img={el.img ? el.img : "https://www.cuerpomente.com/medio/2022/03/04/recetas-frias-veganas_0de24069_1200x630.jpg" } diets={el.Diets ? el.Diets : 'diteamanzana'}  />
+                      </Link> 
                      )
+                     
                 }) : <div className={style.cargando}>
                     <h1>cagando...</h1>
                     </div>
-
-              
-            
-            }
+             }
+             
         </div>
+       
         <button className={style.botonsiguiente} disabled={limit >= 100} onClick={handleNext}>siguiente</button>  
         </div>
        ee
