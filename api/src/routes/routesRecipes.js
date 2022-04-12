@@ -22,7 +22,7 @@ const getApirecipes  = async ()  =>{
             score: e.spoonacularScore,
             level: e.weightWatcherSmartPoints,
             type: e.dishTypes.map(el => el),
-            // steps: e.analyzedInstruction.map(el => el.steps),
+            
 
         };
     });
@@ -35,24 +35,34 @@ const getApirecipes  = async ()  =>{
 const  getDBrecipes = async () => {
     try { 
     return  await Recipes.findAll({
-        include:{
+        include:[ { 
             model: Diets,
             atributes:['name'],
-            through: {
-                atributes: [],
-            },
-
-        }
+         }        
+ ]
     })
 }catch(error){console.log(error)}
 
 }
 
+const getDBWithFixedDiets = (getDB) => {
+    let DBWithFixedDiets = getDB.map((e, i, self) => {
+      let diets;
+      if(e.dataValues.Diets.length && typeof e.dataValues.Diets[0] !== 'string') {
+        diets = e.dataValues.Diets.map(el => el.dataValues.name)
+        return {...self[i].dataValues, Diets: diets}
+      }
+      return self[i].dataValues
+    })
+    return DBWithFixedDiets
+  }
+
 const getAllrecipes = async () =>{
       const getDB = await getDBrecipes();
-      console.log(getDB[0]?.Diets)
+      console.log(getDB[0].dataValues.Diets)
+      const filterDB = getDBWithFixedDiets(getDB)
       const getApi = await getApirecipes();
-      const  Totalrecipes = getDB.concat(getApi);
+      const  Totalrecipes = filterDB.concat(getApi);
          return Totalrecipes;
 
 }
@@ -66,6 +76,7 @@ router.get("/", async (req, res) =>{
         if(offset && limit ){
          const paginateRecipes =  recipesTotal.slice(offset, limit) 
          res.status(200).send(paginateRecipes)
+         return
         }
 
 
@@ -79,7 +90,7 @@ router.get("/", async (req, res) =>{
            res.status(404).send('no se encuentra ninguna receta')
     
         }else {
-            res.status(404)
+            res.status(200).send(recipesTotal)
         }
     
     }catch(error){console.log(error)}

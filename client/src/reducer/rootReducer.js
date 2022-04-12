@@ -43,11 +43,11 @@ function rootReducer( state = initialState, action){
 
     case 'FILTER_TYPE':
         const allrecipes = state.allrecipes
-        const filterRecipe =  action.payload === "All"? allrecipes :  allrecipes.filter(el => el.diets.includes(action.payload))
+        const filterRecipe =  allrecipes.filter(el => el.Diets.includes(action.payload)) 
        console.log(filterRecipe)
         return{
             ...state,
-                recipes: filterRecipe
+                recipes: action.payload ==="All"? allrecipes : filterRecipe
         }
 
 
@@ -56,7 +56,7 @@ function rootReducer( state = initialState, action){
         const filtercreate = action.payload === "created" ? Allrecipes.filter(el => el.createBD) : Allrecipes.filter(el => !el.createBD)
         return {
             ...state,
-                recipes: action.payload === "All" ? Allrecipes : filtercreate
+                recipes: action.payload === "All" ? state.allrecipes : filtercreate
         }
 
     case "ORDER_FILTER":
@@ -108,7 +108,7 @@ function rootReducer( state = initialState, action){
 
             return {
                 ...state,
-                    allrecipes: orden
+                    recipes: orden
             }
      
 

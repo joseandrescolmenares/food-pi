@@ -17,7 +17,8 @@ export default function SearchRecipes(){
 
         const hadleOnclick = () => {
             if(name === ''){
-                alert('no se puede mandar')
+              alert('no se puede mandar')
+              return
             }
            dispatch(getRecipesName(name))
             setName('')

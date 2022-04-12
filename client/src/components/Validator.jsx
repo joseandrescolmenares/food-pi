@@ -82,10 +82,6 @@ const isValidName = (name) => {
   }
   
   const isValidDietName = (dietName) => {
-    // if(!dietName ||(  dietName && dietName?.length <= 0)) {
-    //   return false
-    // }
-    // return true
     if(!dietName) {
         return false
       } else if(dietName && !dietName.length) {
@@ -147,6 +143,3 @@ const isValidName = (name) => {
     && isValidDietName(namedi))
   }
 
-// export default Validator;
-
-//

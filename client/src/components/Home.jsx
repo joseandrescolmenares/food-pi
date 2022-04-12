@@ -16,15 +16,13 @@ export default function Home(){
     const [limit, setLimit] = useState(9)
     const [orden, setOrden] = useState('')
     const [score, setScore] = useState('')
-  console.log(orden)
+    const [type, setType] = useState('')
+    
+  
     useEffect(() =>{
         dispatch(getRecipes(offset, limit));
-        allRecipe.forEach((e, i,self) =>{
-          if(typeof e.Diets[0] !== 'string'){
-            self[i].Diets = e.Diets.map(el => el.name)
-          }
-        })
-    },[dispatch, limit, offset, allRecipe])
+      
+    },[dispatch, limit, offset, ])
 
 
     const handlePrev = () =>{
@@ -40,6 +38,7 @@ export default function Home(){
 
       const handleFiltertypes = (e) =>{
         dispatch(Filtertypes(e.target.value))
+        setType(`${e.target.value}`)
         
       }
 
@@ -55,8 +54,7 @@ export default function Home(){
 
       const handleScore = (e) => {
         dispatch(filterScore(e.target.value))
-        setScore(`Ordenado${e.target.value}`)
-        console.log(score)
+        setScore(`${e.target.value}`)
       }
      
      
@@ -116,7 +114,7 @@ export default function Home(){
                           
                     <Link className={style.link} to={`/home/${el.id}`}>
                      
-                    <Card   key={el.id}  name={el.name}  img={el.img ? el.img : "https://www.cuerpomente.com/medio/2022/03/04/recetas-frias-veganas_0de24069_1200x630.jpg" } diets={el.Diets ? el.Diets : 'diteamanzana'}  />
+                    <Card   key={el.id}  name={el.name}  img={el.img ? el.img : "https://www.cuerpomente.com/medio/2022/03/04/recetas-frias-veganas_0de24069_1200x630.jpg" } Diets={el.Diets? el.Diets :  el.Diets.map(el => el.name)}  />
                       </Link> 
                      )
                      
@@ -129,7 +127,7 @@ export default function Home(){
        
         <button className={style.botonsiguiente} disabled={limit >= 100} onClick={handleNext}>siguiente</button>  
         </div>
-       ee
+       
         </div>
      )
 
