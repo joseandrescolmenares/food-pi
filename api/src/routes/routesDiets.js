@@ -10,7 +10,7 @@ const {agregardi, mostrardiets} = require("./constroller/Diets")
 
 router.get("/", async (req, res) => {
     await agregardi()
-    res.status(200).json( await mostrardiets())
+    res.status(200).json(await mostrardiets())
       
   
 });

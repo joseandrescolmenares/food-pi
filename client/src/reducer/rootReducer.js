@@ -1,8 +1,8 @@
 
 
 const initialState = {
-    recipes: [],
-    allrecipes: [],
+    recipes: [], // Renderiza
+    allrecipes: [], // Inmutable, todos las recetas
     types: []
     
 }
@@ -13,11 +13,12 @@ function rootReducer( state = initialState, action){
       case 'GET_RECIPES':
           return{ 
               ...state,
-                 recipes: action.payload,
-                 allrecipes: action.payload
+                 recipes: [...action.payload],
+                 allrecipes: [...action.payload]
     }
 
     case 'GET_RECIPES_NAME':
+        
         return{
             ...state,
                 recipes: action.payload
@@ -41,10 +42,19 @@ function rootReducer( state = initialState, action){
             ...state
         }
 
+    case 'SCORE':        
+        const currentRecipes = [...state.recipes];
+        const filtrados = currentRecipes.filter(el => el.score >=98)
+        console.log(filtrados)
+        return{
+            ...state,
+            allrecipes: filtrados
+
+        }
+
     case 'FILTER_TYPE':
-        const allrecipes = state.allrecipes
+        const allrecipes = [...state.allrecipes]
         const filterRecipe =  allrecipes.filter(el => el.Diets.includes(action.payload)) 
-       console.log(filterRecipe)
         return{
             ...state,
                 recipes: action.payload ==="All"? allrecipes : filterRecipe
@@ -52,7 +62,7 @@ function rootReducer( state = initialState, action){
 
 
     case "FILTER_CREATE":
-        const Allrecipes = state.allrecipes
+        const Allrecipes = [...state.allrecipes]
         const filtercreate = action.payload === "created" ? Allrecipes.filter(el => el.createBD) : Allrecipes.filter(el => !el.createBD)
         return {
             ...state,

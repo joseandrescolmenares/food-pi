@@ -51,7 +51,16 @@ export function getType(){
          }catch (error){console.log(error)}
      
     }
+
+
     
+}
+
+
+export function scores(){
+    return{
+        type: 'SCORE'
+    }
 }
 
 
@@ -60,7 +69,7 @@ export function getType(){
 export function postCreate(payload) {
     return async function(dispatch){
         try{ 
-        let info = await  axios.post('http://localhost:3001/recipe', payload)
+        let info = await axios.post('http://localhost:3001/recipe', payload)
         return info
          
     }

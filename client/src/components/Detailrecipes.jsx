@@ -17,11 +17,8 @@ export default function Detailrecipes(){
     },[dispatch,id])
     
 
-     console.log(detailrecipes.summary)
 
-    //  function renpla(){
-    //      deta
-    //  }
+    
 
     return(
         <div className={style.detail}>
@@ -31,7 +28,7 @@ export default function Detailrecipes(){
                    <a  href="/home"><button className={style.boton} > regresar</button></a>
                   <h1 className={style.h1}>{detailrecipes.name}</h1> 
                   <img className={style.img} src={detailrecipes.img ? detailrecipes.img : "https://www.cuerpomente.com/medio/2022/03/04/recetas-frias-veganas_0de24069_1200x630.jpg"}/>
-                  <h2 className={style.h1}> Dietas : {detailrecipes.Diets? detailrecipes.Diets : 'dietamanza'}</h2>
+                  <h2 className={style.h1}> Dietas : {detailrecipes.Diets}</h2>
                   <p >{detailrecipes.summary}</p>
                   <h2>{detailrecipes.steps}</h2>
                   <h2 className={style.h1}>Puntaje : {detailrecipes.score}</h2>

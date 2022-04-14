@@ -7,7 +7,7 @@ import  { isFullFormValid } from "./Validator"
 import style from './styles/CreateRecipe.module.css'
 import {Link} from 'react-router-dom' 
 import {validateFormAndReturnErrorObject} from './Validator'
- 
+
  export default function CreateRecipes(){
     const navegetion = useNavigate()
     const dispatch = useDispatch()
@@ -23,7 +23,7 @@ import {validateFormAndReturnErrorObject} from './Validator'
         namedi: [],
      
     })
-    
+    console.log(button)
     
     const handleChange = (e) =>{
         setInput({
@@ -40,7 +40,7 @@ import {validateFormAndReturnErrorObject} from './Validator'
 
     }
 
-
+   
     const hadleCheck = (e) =>{
         if(e.target.checked){
             setInput({
@@ -56,7 +56,7 @@ import {validateFormAndReturnErrorObject} from './Validator'
     const handleSubmit = (e)=>{
         e.preventDefault()
         dispatch(postCreate(input))
-        alert('tu personaje se creo con exitos')
+        alert('tu receta se creo con exitos')
         setInput({
             name:"",
             namedi: [],
@@ -72,7 +72,6 @@ import {validateFormAndReturnErrorObject} from './Validator'
     }
     useEffect(() =>{
         setButton(isFullFormValid(input))
-        console.log(isFullFormValid(input), input)
     },[input])
 
     useEffect(() =>{

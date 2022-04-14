@@ -46,6 +46,7 @@ const  getDBrecipes = async () => {
 }
 
 const getDBWithFixedDiets = (getDB) => {
+    
     let DBWithFixedDiets = getDB.map((e, i, self) => {
       let diets;
       if(e.dataValues.Diets.length && typeof e.dataValues.Diets[0] !== 'string') {
@@ -59,7 +60,7 @@ const getDBWithFixedDiets = (getDB) => {
 
 const getAllrecipes = async () =>{
       const getDB = await getDBrecipes();
-      console.log(getDB[0].dataValues.Diets)
+     
       const filterDB = getDBWithFixedDiets(getDB)
       const getApi = await getApirecipes();
       const  Totalrecipes = filterDB.concat(getApi);
@@ -90,7 +91,7 @@ router.get("/", async (req, res) =>{
            res.status(404).send('no se encuentra ninguna receta')
     
         }else {
-            res.status(200).send(recipesTotal)
+            res.status(200).send(paginateRecipes)
         }
     
     }catch(error){console.log(error)}

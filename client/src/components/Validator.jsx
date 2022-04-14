@@ -1,40 +1,4 @@
 
- 
-
-
-//  const Validator = (input) =>{
-//      let error = {}
-//     if(!input.name ){
-//         error.name = 'coloque un nombre'
-//     }
-
-//     else if (/^[0-9]+$/.test(input.name)){
-//         error.name = 'el nombre no puee ser numeros'
-//     }
-  
-
-//       if(!input.score){ 
-//         error.score='coloque una puntuacion'
-//     }
-   
-
-//     if(!input.level){
-//         error.level ='coloque un nivel'
-//     }
-//     if(!input.steps){
-//             error.steps = 'coloque los pasos'
-//     }
-
-//     if(!input.summary){
-//         error.summary = 'coloque el resumen de su receta'
-//     }
-
-//     if(input.namedi.length === 0){
-//         error.namedi = 'agregue un tipo de dieta'
-//     }
-
-//     return error
-// }
 
 
 const isValidName = (name) => {
