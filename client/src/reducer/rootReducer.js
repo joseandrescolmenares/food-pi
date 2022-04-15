@@ -3,7 +3,8 @@
 const initialState = {
     recipes: [], // Renderiza
     allrecipes: [], // Inmutable, todos las recetas
-    types: []
+    types: [],
+    loanding: false,
     
 }
 
@@ -14,7 +15,8 @@ function rootReducer( state = initialState, action){
           return{ 
               ...state,
                  recipes: [...action.payload],
-                 allrecipes: [...action.payload]
+                 allrecipes: [...action.payload],
+                 loanding: false
     }
 
     case 'GET_RECIPES_NAME':
@@ -27,7 +29,8 @@ function rootReducer( state = initialState, action){
     case 'GET_DETAIL':
         return{
             ...state,
-                recipes: action.payload
+                recipes: action.payload,
+                loanding: false
         }
 
     case 'GET_TYPES':
@@ -42,15 +45,15 @@ function rootReducer( state = initialState, action){
             ...state
         }
 
-    case 'SCORE':        
-        const currentRecipes = [...state.recipes];
-        const filtrados = currentRecipes.filter(el => el.score >=98)
-        console.log(filtrados)
-        return{
-            ...state,
-            allrecipes: filtrados
+    // case 'SCORE':        
+    //     const currentRecipes = [...state.recipes];
+    //     const filtrados = currentRecipes.filter(el => el.score >=98)
+    //     console.log(filtrados)
+    //     return{
+    //         ...state,
+    //         allrecipes: filtrados
 
-        }
+    //     }
 
     case 'FILTER_TYPE':
         const allrecipes = [...state.allrecipes]
@@ -120,6 +123,13 @@ function rootReducer( state = initialState, action){
                 ...state,
                     recipes: orden
             }
+
+
+            case "LOADER":
+                return {
+                    ...state,
+                        loanding: true
+                }
      
 
     default:

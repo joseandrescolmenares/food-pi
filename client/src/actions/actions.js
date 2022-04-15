@@ -4,6 +4,7 @@ import axios from 'axios'
 
 export function getRecipes(offset, limit){
     return async function(dispatch){
+        dispatch(cambiarLoader())
         try{ 
             let resul = offset !== undefined && limit !== undefined ?  await axios.get(`http://localhost:3001/recipes?offset=${offset}&limit=${limit}`) :  await axios.get('http://localhost:3001/recipes');
         return dispatch({
@@ -30,6 +31,7 @@ export function getRecipesName(name){
 
 export function getDetailrecipes(id){
     return async function(dispatch){
+        dispatch(cambiarLoader())
         try{ 
         let resultado = await axios.get(`http://localhost:3001/recipes/${id}`)
         return dispatch({
@@ -57,9 +59,15 @@ export function getType(){
 }
 
 
-export function scores(){
+// export function scores(){
+//     return{
+//         type: 'SCORE'
+//     }
+// }
+
+export function cambiarLoader(){
     return{
-        type: 'SCORE'
+        type: "LOADER"
     }
 }
 

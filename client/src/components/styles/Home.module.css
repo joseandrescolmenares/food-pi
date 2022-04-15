@@ -24,6 +24,7 @@ justify-content:center;
     grid-template-columns:repeat(3, 1fr) ;
     grid-template-rows: repeat(3, 1fr);
     gap: 20px;
+    grid: center;
 }
 
 .botonsiguiente{
@@ -32,7 +33,7 @@ justify-content:center;
     justify-content: center;
     width: 80px;
     height:30px;
-    padding: 10px;
+    /* padding: 10px; */
     margin-left: 20px;
     background-color: #fcfaf9;
     border-radius: 15px;
@@ -55,8 +56,16 @@ justify-content:center;
     display: flex;
     justify-content: flex-end;
     margin :30px 30px 30px 0px ;
+    border-radius: 15px;
    
   
+}
+
+.createboton{
+    color: #a09b99;
+    background-color: #fcfaf9;
+    border-radius: 15px;
+    opacity: 0.9;
 }
 .select{
     width:80px;
@@ -101,9 +110,23 @@ justify-content:center;
 }
 
 .botonimg{
-    width:200px;
-
     background-image: url('../icono\ 1.png');
     background-repeat: no-repeat;
     background-size: auto;
 }
+
+
+.noresult{
+    display: flex;
+    justify-content:center;
+    height: 16vh;
+}
+
+.loadingcen{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+   position: relative;
+   top: 400px;
+}
+

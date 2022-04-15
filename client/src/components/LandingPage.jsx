@@ -12,7 +12,7 @@ export default function LandingPage(){
             <h1 className={style.h1}>bienvenidos a mi app</h1>
         
            <NavLink to='/home'>  
-           <button className={style.button}><h1>Comenzar</h1></button> 
+           <button className={style.landing}>COMENZAR</button> 
              </NavLink>
 
         </div>

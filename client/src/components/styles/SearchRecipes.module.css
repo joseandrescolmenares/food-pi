@@ -3,7 +3,7 @@
     justify-content: center;
     align-items: center;
     margin-bottom: 50px;
-    opacity: 0.8;
+ 
 }
 
 .input{
@@ -11,12 +11,16 @@
     width: 300px;
     height: 25px;
     margin: 10px;
-     background-color:#dfdddd;;
-     opacity: 0.9;
+     background-color:#faf6f6;;
+     opacity: 0.8;
+     border: 1px solid rgb(255, 251, 251);
 }
 
 .inputBuscar{
+    width: 80px;
     border-radius: 10px;
-   padding: 6px;
+   padding: 2px;
+   background-color: #fff8f8;
+   border: 1px solid rgb(255, 251, 251);
 }
 

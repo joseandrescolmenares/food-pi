@@ -44,21 +44,31 @@
      align-items: center;
      width:400px;
      height: 650px;
-     border: 1px solid #333;
      opacity: 0.9;
      border-radius:20px;
-     box-shadow: 20px 10px 10px #333;
-     
+     background-color: rgb(228, 163, 106);
  }
 
  .boton{
      margin-top: 10px;
      width:100px;
      border-radius: 10px;
+     background-color:rgb(255, 255, 251);
+     color:black;
+     border:none ;
+ }
+ .boton:hover{
+     background-color: bisque;
  }
 
  .regresa{
  margin: 20px;
  background-color: antiquewhite;
  border-radius: 8px;
+ border: none;
+ }
+
+ .regresa:hover{
+     background-color:bisque;
+     color: black;
  }

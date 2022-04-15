@@ -21,13 +21,28 @@ justify-content:center;
 }
 
 .h1{
-    color: #413c42;
+    color: rgba(8, 7, 7, 0.932);
 }
 
 .boton{
     width: 100px;
     height: 25px;
    border-radius:20px;
+   color:rgba(8, 7, 7, 0.932);
+   background-color: aliceblue;
+   border: 1px solid black;
+}
+.boton:hover{
+    background-color:beige;
+    color: black;
+}
+
+.loadingcen{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+   position: relative;
+   top: 400px;
 }
 
 

@@ -86,12 +86,12 @@ router.get("/", async (req, res) =>{
        
         if(name) {
            const recipesName =  await recipesTotal.filter(e => e.name.includes(name))
-           recipesName.length ?
-           res.status(200).send(recipesName) :
-           res.status(404).send('no se encuentra ninguna receta')
+           
+           res.status(200).send(recipesName) 
+           
     
         }else {
-            res.status(200).send(paginateRecipes)
+            res.status(200).json(recipesName)
         }
     
     }catch(error){console.log(error)}
@@ -102,7 +102,6 @@ router.get("/:id", async (req, res) =>{
     const {id} = req.params;
     const allrecipes = await getAllrecipes()
     const recipesFilter = allrecipes.find(e => e.id == id);
-
     if(recipesFilter){
         res.status(200).json(recipesFilter);
     }else{

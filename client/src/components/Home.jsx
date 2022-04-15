@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getRecipes,  Filtertypes, createfilter, orderFilter, filterScore, scores} from "../actions/actions";
+import { getRecipes,  Filtertypes, createfilter, orderFilter, filterScore} from "../actions/actions";
 import Card from "../components/Card";
 import style from "./styles/Home.module.css"
 import { Link } from "react-router-dom";
 import SearchRecipes from "./SearchRecipes";
-
+import NoResult from "./NoResult"
+import Loanding from "./Loanding"
 
 export default function Home(){
 
     const dispatch = useDispatch()
     const allRecipe = useSelector((state) => state.recipes)
-
+   const loanding = useSelector((state) => state.loanding)
 
     const [offset, setOffset] = useState(0)
     const [limit, setLimit] = useState(9)
@@ -58,21 +59,23 @@ export default function Home(){
         setScore(`${e.target.value}`)
       }
 
-      const handleScoremayor = (e) =>{
-        e.preventDefault();
-        dispatch(scores())
+      // const handleScoremayor = (e) =>{
+      //   e.preventDefault();
+      //   dispatch(scores())
           
-      }
-     
-     
+      // }
+      console.log(allRecipe)
+      
 
     return(
-            <div className={style.body}> 
+            <div>{ loanding? <div className={style.loadingcen}><Loanding/></div>  :   
+            <div className={style.body}>
+             
 
               
              
               <div className={style.create}> 
-            <div className={style.botonimg}>boton </div>
+          <Link to='/recipe'> <button className={style.createboton}>crear tu receta</button> </Link>
               </div>
               <div> 
               <SearchRecipes />
@@ -83,7 +86,7 @@ export default function Home(){
                 <option value="asc">Ascendente</option>
                 <option value="desc">Desendente</option>
                 </select>
-                 <button className={style.select} onClick={(e) => handleScoremayor(e)}>score</button>
+                 {/* <button className={style.select} onClick={(e) => handleScoremayor(e)}>score</button> */}
 
                 
                 
@@ -115,8 +118,8 @@ export default function Home(){
               <button className={style.filtradoAtras}  disabled={offset<= 0} onClick={handlePrev}>atras</button>
             
          <div className={style.order}>
-                  
-            {allRecipe &&
+        
+            {allRecipe.length ?
                 allRecipe.map(el => {
                     return ( 
                           
@@ -127,14 +130,19 @@ export default function Home(){
                      )
                      
                 })
+                : <div className={style.noresult}><NoResult /></div>
+                
              }
              
         </div>
        
         <button className={style.botonsiguiente} disabled={limit >= 100} onClick={handleNext}>siguiente</button>  
         </div>
+        
        
         </div>
+       }  </div> 
      )
-
+    
+    
 }
